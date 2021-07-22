@@ -19,11 +19,7 @@ db.connect((error)=>{
 
 })
 
-
-
 app.use('/',user)
-
-
 app.listen('3001',()=>{
     console.log("Server running on port 3000")
 })
