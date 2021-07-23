@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Home() {
   const [name,setName]= useState('')
+  const [data, setData]=useState('')
   const classes = useStyles();
   const handleSubmit=async(e)=>{
       e.preventDefault()
@@ -35,7 +36,8 @@ function Home() {
           name:name
       }
       const res= await axios.post("http://localhost:3001/user",newUser)
-      console.log(res)
+      setData(res.data)
+      console.log(res.data)
   }
 
   return (
@@ -70,14 +72,8 @@ function Home() {
         <Button variant="contained" color="primary" disableElevation onClick={handleSubmit}>
           Begin
         </Button>
-        
-        
         </Typography>
-
-       
-        
-        
-      </Container>
+    </Container>
 
     </div>
   );
